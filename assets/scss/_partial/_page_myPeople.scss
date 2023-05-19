@@ -1,0 +1,53 @@
+.myPeoList{
+    .tabBtnWrap{
+        padding-top: rem(15);
+    }
+    .tabCont{        
+        padding: rem(20);
+    }
+    .yScroll{
+        height: calc(100vh - 222px);    
+        font-size: rem(14);
+        @include scroll_0;
+    }
+    .listBottom{
+        @include flex_2_3;
+    }
+}
+
+.myPeoDetail{
+    .tableBox{
+        height: calc(100vh - 190px);  
+        margin-top: rem(30);      
+    }
+    .boxListWrap{    
+        height: calc(100vh - 190px);
+        margin-top: rem(20);
+        background: transparent;
+    }
+    .default{
+        height: 100%;
+    }
+    &.is-active{
+        & + .quickView{
+            width: rem(360);
+            right: rem(52);
+        }
+    }
+}
+
+
+.myPeoDetail{
+    .notify{
+        p{
+            &:first-child{
+                font-size: rem(18);
+                font-weight: 700;
+            }
+        }
+    }    
+    .tableBox{
+        height: calc(100vh - 240px);  
+        margin-top: rem(30);      
+    }
+}

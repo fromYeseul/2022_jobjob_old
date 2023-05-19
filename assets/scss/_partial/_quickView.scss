@@ -1,0 +1,155 @@
+.quickView{
+    position: absolute;
+    right: 0;
+    top: 0;
+    // padding: rem(40);
+    width: rem(320);
+    background: $white;
+    //border: 1px solid $tabGray;  
+    box-shadow: -1px 1px 1px 0 rgba(100, 100, 100, 0.1);
+    border:1px solid $layoutColor;  
+    &.fixedHeight{
+        width: 0;
+        position: fixed;
+        top: 60px;
+        right: -360px;
+        box-shadow: none;
+        border-left:1px solid $layoutColor;    
+        transition:all .3s;
+        &.is-active{
+            width: rem(330);
+            right: rem(52);  
+        }
+        .tabWrapper{
+            position: relative;
+            // .onlyIco{
+            //     width: rem(20);
+            //     height: rem(55);
+            //     border:0;
+            //     background: transparent;
+            //     position: absolute;
+            //     top: 7%;
+            //     left: -13px;
+            //     background-image: url(../img/icoClose.png);
+            // }
+            .onlyIco{
+                position: absolute;
+                top: 38%;
+                left: -10px;
+                width: rem(17);
+                height: rem(60);
+                border-right: rem(11) solid $white;
+                &::after{
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-top: 8px solid transparent;
+                    border-bottom: 8px solid transparent;
+                    border-left: 8px solid #e6e6eb;
+                    position: absolute;
+                    top: 50%;
+                    left: rem(6);
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        .tabBtnWrap{
+            padding: rem(20);
+            padding-bottom: 0;
+        }
+        .boxListWrap{
+            &.is-active{
+                //padding: rem(20);
+                //height: calc(100vh - 115px);
+                height: calc(100vh - 170px);
+            }
+            // .boxList{
+            //     .moreList{
+            //         right: -25px;
+            //     }
+            // }
+        }
+    }
+    .tabBtnWrap{
+        // padding: rem(20) rem(25);
+        // padding-bottom: 0;
+        padding-top: rem(10);
+        li{
+            width: 30%;
+            a{
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+    .boxTop{
+        padding: rem(10) rem(18);
+    }
+    .boxListWrap{
+        padding: 0;
+        height: 0;
+        @include scroll_0;
+        &.nodata{
+            height: calc(100vh - 190px);
+        }
+        &.is-active{
+            padding: rem(10) rem(18);
+            padding-top: 0;
+            height: calc(100vh - 151px);
+        }
+        li{            
+            margin-top: rem(12);
+            &:first-child{
+                margin-top: 0;
+            }
+            &.yScroll{
+                display: none;
+                align-items: center;
+                justify-content: center;
+                height: calc(100vh - 330px);
+                &.is-active{
+                    display: flex;
+                }
+            }
+        }
+    }
+    .boxList{
+        cursor: inherit;
+        &.headType,
+        &.memoBox{
+            .cont{
+                .prefix{
+                    width: 100%;
+                    ul{
+                        width: 100%;
+                    }
+                }
+                .txtCenter{
+                    margin-top: rem(10);
+                }
+            }
+        }
+        .memMemo{
+            a{
+                display: block;
+                margin-bottom: rem(4);
+                font-weight: 700;
+                text-decoration: underline;
+                @include ellipsis;
+                // padding: rem(2) rem(4);
+                // background: $bgColor;
+            }
+        }
+        .txtRight{
+            margin-top: 0;
+            display: none;
+            &.is-active{
+                display: block;
+            }
+        }
+        .btnWrap{
+            // margin-top: rem(5);
+            margin-top: rem(12);
+        }
+    }
+}

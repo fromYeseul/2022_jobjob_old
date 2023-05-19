@@ -1,0 +1,45 @@
+
+.chkListWrap{
+    margin-top: rem(40);
+    i{
+        vertical-align: middle;
+        &.list{
+            margin-right: rem(8);
+        }
+        &.delete{
+            margin-left: rem(10);
+            vertical-align: middle;
+        }
+    }
+    ul{
+        display: inherit !important;
+        margin-top: rem(20);
+        margin-bottom: rem(30);
+        li{
+            margin-bottom: rem(10);
+            span{
+                font-weight: 400;
+                font-size: rem(14);
+            }
+        }
+        input{
+            &:checked{
+                + label{
+                    + span{
+                        position: relative;
+                        display: inline-block;
+                        &::after{
+                            content:'';
+                            width: calc(100% + 4px);
+                            height: 1px;
+                            background: $black;
+                            position: absolute;
+                            left: -2px;
+                            top: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

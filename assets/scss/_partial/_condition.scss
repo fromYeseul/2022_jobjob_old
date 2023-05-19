@@ -1,0 +1,32 @@
+/* 테이블 검색 조건 */
+.condition{
+    margin-top: rem(30);
+    .condiTit{
+        display: block;
+        margin-bottom: rem(9);
+        font-size: rem(15);
+        font-weight: 500;
+        color: $black;
+        &.tabType{
+            margin-top: -8px;
+            // margin-bottom: rem(3);
+            margin-bottom: rem(8    );
+        }
+    }
+    > ul{
+        display: flex;
+        flex-wrap: wrap;
+        li{
+            display: inline-block;
+            margin-right: rem(7);
+            input[type=text]{                
+                width: rem(400);
+            }
+
+            //select, input 너비, 높이 등을 기본값으로할건지???
+        }
+    }
+    label{
+        font-weight: 400;
+    }
+}

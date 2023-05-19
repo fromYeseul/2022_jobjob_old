@@ -1,0 +1,163 @@
+.tabWrapper{
+    &.listType{
+        display: flex;
+         >.tabBtnWrap{
+            display: block;
+            width: rem(250);
+            min-height: 100vh;
+            max-height: 100vh;
+            overflow-y: auto;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+            h2{
+                padding: rem(20) rem(16);
+                border-bottom:1px solid $layoutColor;
+            }
+            .tabBtn{
+                a{
+                    display: inline-block;
+                    width: 100%;
+                    padding: 5px 20px;
+                    border: 0;
+                    border-bottom: 1px solid $layoutColor;
+                    text-align: left;
+                    &.is-active{
+                        color: $black;
+                        background: $white;
+                        border-left: 3px solid $mainColor;
+                    }
+                }
+            }
+        }
+        >.tabContWrap{
+            width: calc(100% - 250px);
+            >.tabCont{
+                max-height: 100vh;
+                overflow-y: auto;
+                padding: rem(30) rem(50);
+            }
+        }
+    }
+}
+
+
+.tabBtnWrap{  
+    display: flex;
+    align-items: center;
+    .tabBtn{
+        background: $white;
+        text-align: center;
+        line-height: rem(42);
+        margin-left: -1px;
+        &:first-child{
+            margin-left: 0;
+            a{
+                border-radius: rem(4) 0 0 rem(4);
+            }                
+        } 
+        &:last-child{                
+            a{
+                border-radius: 0 rem(4) rem(4) 0;
+            }                
+        }
+        a{
+            display: inline-block;
+            width: rem(96);
+            color: $cancel; 
+            font-weight: 500;
+            border: 1px solid $inputGray;
+            &.is-active{                    
+                color: $white;
+                background-color: $mainColor;
+                border: 1px solid $mainColor;
+            }
+        }
+    }
+    &.wideSize{
+        a{
+            width: rem(190);
+        }
+    }
+    &.underType{        
+        justify-content: space-between;
+        padding: 0 rem(20);
+        border-bottom:1px solid $tabGray; 
+        .tabBtn{
+            a{
+                width: auto;
+                border: 0;
+                position: relative;
+                &.is-active{                    
+                    color: $black;
+                    background-color: $white;
+                    &:after{
+                        content: "";
+                        width: 100%;
+                        height: 2px;
+                        background: $black;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                    }
+                }
+            }
+        }
+        &.midSize{
+            .tabBtn{
+                a{
+                    padding: 0 rem(10);
+                }
+            }
+        }
+        &.wideSize{   
+            .tabBtn{
+                flex: 1 1 30%;     
+                a{
+                    width: 100%;
+                }
+            }   
+        }
+    }
+    &.btnType{
+        .tabBtn{   
+            & + .tabBtn{
+                margin-left: rem(7);
+            }         
+            a{
+                border-radius: rem(4);
+            }    
+        }
+        &.smSize{
+            li{
+                line-height: rem(30);
+                a{
+                    width: rem(74);
+                    font-size: rem(14);
+                }
+            }
+        }
+    }
+    &.bdType{
+        .tabBtn{
+            margin-right: rem(7);
+            a{
+                width: auto;
+                padding: 0 rem(10);
+                background-color: $white;
+                border-radius: rem(4);
+                &.is-active{                    
+                    color: $mainColor;
+                }
+            }
+        }
+    }
+}
+
+.tabContWrap{
+    .tabCont{
+        display: none;
+        position: relative;
+        &.is-active{
+            display: block;
+        }
+    }
+}
