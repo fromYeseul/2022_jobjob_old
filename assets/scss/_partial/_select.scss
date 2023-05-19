@@ -1,0 +1,296 @@
+
+/* SELECT */
+// select{    
+//     //display: block;
+//     width: rem(100);
+//     height: rem(50);
+//     padding-left: rem(14);
+//     border-radius: rem(4);
+//     border: 1px solid $inputGray;
+//     //화살표 수정
+//     appearance: none;
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//     background: url(../img/icoSelect.png) no-repeat;
+//     background-position: right rem(14) top 50%;
+//     &:focus{
+//         outline: none;
+//     }
+//     & + input[type=text]{
+//         width:auto;
+//     }
+// }
+
+select{
+  padding: 0 7px;
+  padding-right: 10px;
+  // width: rem(100);
+  min-width: rem(100);
+  height: 44px;
+  border-radius: 5px;
+  border:1px solid $inputGray;  
+
+  //화살표 커스텀
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(../img/icoSelect.png) no-repeat calc(100% - 6px);
+  
+  background-color: $white;
+  &:focus{
+    border: 1px solid $mainColor;
+  }
+  &:disabled {
+    // opacity: 0.5;
+    color: $inputGray;
+    background: $bgColor; 
+    background: url(../img/icoSelect_dis.png) no-repeat calc(100% - 6px);
+  }
+  option{
+    // zoom: 1.2;
+    &:disabled{
+      display: none;
+      color: $error;
+    }
+  }
+  &.xxsSize{
+    min-width: rem(60);
+    width: rem(60);
+  }
+  &.xsSize{
+    min-width: rem(70);
+    width: rem(70);
+    height: rem(36);
+  }
+  &.smSize{
+    min-width: rem(80);
+    width: rem(70);
+    height: rem(36);
+  }
+  &.lowSize{
+    height: rem(32);
+  }
+  &.wideSize{
+    width: rem(180);
+  } 
+  &.full{
+    width: 100%;
+  }
+  &.noBd{
+    color: $white;
+    border: 0;    
+    background: url(../img/icoSelect_w.png) no-repeat calc(100% - 6px);
+    option{
+      color: $black;
+    }
+  }
+}
+
+//datepicker select 초기화
+.ui-datepicker-title{
+  select{
+    padding: initial;
+    height: initial;
+    border-radius: initial;
+    border: initial;
+  }
+}
+
+
+
+
+.select {
+  position: relative;
+  display: inline-block;
+  width: rem(102);
+  font-size: rem(14);
+  font-weight: 400;
+  text-align: left !important;
+  background: $white;
+  border-radius: rem(4);
+  border: 1px solid $inputGray;
+  &.disabled{
+    color: $cancel;
+    background: $lightGray;
+    pointer-events: none;
+  }
+  .selDefault{
+    display: block;
+    //text-align: left;
+    font-weight: 400;
+    line-height: rem(42);
+    padding-left: rem(7);
+    @include ellipsis;
+    width: 100%;
+    cursor: pointer;
+    &::before{
+      content: '';
+      width: rem(12);
+      height: rem(6);
+      background: url(../img/icoSelect.png) no-repeat;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-40%); 
+      right: rem(7); 
+    }
+    &.low{
+      line-height: rem(34);
+      padding-left: rem(6);
+      & + .optionList{
+        top: rem(40);
+      }
+      &::before{
+        right: rem(8); 
+      }
+    }
+  }
+  .optionList {
+    display: none !important;
+    max-height: rem(220);
+    overflow-y: auto;
+    position: absolute; 
+    top: rem(50);
+    left: -1px;
+    width: calc(100% + 2px);
+    color: $subInfo;
+    padding: 0;
+    border-radius: rem(4);
+    border:1px solid $selOptList;
+    background: $white;
+    z-index: 10;
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-clip: padding-box;
+      border: 2px solid transparent;
+    }
+    .optionItem {
+      display: block;
+      padding: rem(8) rem(10);
+      padding-right: rem(4);
+      margin: 0;     
+      cursor: pointer; 
+      &:hover {
+        color: $black;
+        font-weight: 400;
+        background: $selHover;
+      }
+      &.disabled{
+        color: $cancel;
+        background: $lightGray;
+        pointer-events: none;
+        &:hover{
+          background: transparent;
+        }
+      }
+      label{
+        display: block;
+        font-weight: 400;
+        vertical-align: middle;
+      }
+      p{
+        font-size: rem(12);
+        line-height: rem(14);
+      }
+    }
+    &.hasChk{
+      .optionItem{
+        padding: 0 !important;
+        label{
+          padding: rem(8) rem(8);
+        }
+      }
+    }
+  }
+  &.lowSize{
+    width: rem(102);
+    .selDefault{
+      line-height: rem(32);
+    }
+    .optionList {
+      top: rem(40);
+    }
+  }
+  &.mid-lowSize{
+    width: rem(102);
+    .selDefault{
+      line-height: rem(36);
+    }
+    .optionList {
+      top: rem(40);
+    }
+  }
+  &.xsSize{
+    width: rem(72);
+  }
+  &.smSize{
+    width: rem(86);
+    line-height: rem(28);
+    .selDefault{
+      line-height: rem(28);
+    }
+    .optionList {
+      top: rem(33);
+      .optionItem {
+        padding: rem(2) rem(10);
+      }
+    }
+  }
+  &.laSize{
+    width: rem(130);
+  }
+  &.wideSize{
+    width: rem(182);
+  }  
+  &.upper{
+    .optionList{
+      top:auto;
+      bottom: rem(50);
+    }
+    &.smSize{
+      .optionList{
+        bottom: rem(32);
+      }
+    }
+  }
+  //체크박스를 가진 select
+  label{
+    display: block;
+    &::before{
+      vertical-align: middle;
+    }
+  }
+  & + .select{
+    margin-left: rem(10);
+  }
+  &.need{
+    border: 1px solid $error; 
+  }
+  &.is-active{
+    border: 1px solid $mainColor;
+    .selDefault{
+      &::before{
+        top: 45%;
+        transform: rotate(180deg);
+        background: url(../img/icoSelect.png) no-repeat;
+      }
+    }
+    .optionList {
+      display: block !important;
+    }
+  }
+  &.disable{
+    color: $inputGray;
+    pointer-events: none;
+    //background: $inputGray;
+    .selDefault{
+      &::before{
+        background: url(../img/icoSelect_dis.png) no-repeat;
+      }
+    }
+  }
+  &:focus{
+    border: 1px solid $mainColor;
+  }
+}
